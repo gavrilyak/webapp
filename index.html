@@ -1,13 +1,16 @@
 <html>
   <head>
     <script>
-      var dojoConfig = {
+      var dojoConfig = function() {
+      	var local = location.pathname.replace(/\/[^/]+$/, '');
+      	return {
 	//baseUrl        : "../",
-	async          : true,
-	//selectorEngine : 'css2.1',
-	packages:[{ name:"todo", location: location.pathname.replace(/\/[^/]+$/, '') + '/todo' }]
+	  async          : true,
+	  //selectorEngine : 'css2.1',
+	  packages:[{ name:"todo", location:  [local,'todo'].join("/") }]
+        }
       }
-    console.log(dojoConfig);
+      console.log(dojoConfig);
     </script>
     <!--script type="text/javascript" src="dojo/dojo.js"></script-->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.0/dojo/dojo.js"></script>
