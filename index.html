@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script>
+      var dojoConfig = {
+	async          : true,
+	selectorEngine : 'css2.1'
+      }
+    </script>
+    <script type="text/javascript" src="dojo/dojo.js"></script>
+    <script>require(["todo/widget/list", "dojo/domReady!"], function(List){
+      var completedTodos = document.getElementById("completed").appendChild(List("/completed", {state:"C"}).div);
+      var pendingTodos   = document.getElementById("pending").appendChild(List("/pending",   {state:"R"}).div);
+      console.log("todo")
+    })
+  </script>
+</head>
+<body>
+  <div>
+    <h1>Completed TODOS </h1>
+    <div id="completed"></div>
+  </div>
+  <div>
+    <h1>Pending TODOS</h1>
+    <div id="pending">
+  <div>
+
+</body>
