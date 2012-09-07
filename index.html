@@ -5,10 +5,13 @@
 	//baseUrl        : "../",
 	async          : true,
 	//selectorEngine : 'css2.1',
-	//packages:[{ name:"todo1", location:"." }]
+	packages:[{ name:"todo", location: location.pathname.replace(/\/[^/]+$/, '') + '/todo' }]
       }
+    console.log(dojoConfig);
     </script>
-    <script type="text/javascript" src="dojo/dojo.js"></script>
+    <!--script type="text/javascript" src="dojo/dojo.js"></script-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.0/dojo/dojo.js"></script>
+
     <script>
       require(["todo/widget/list", "dojo/domReady!"], function(List){
 	var completedTodos = document.getElementById("completed").appendChild(List("/completed", {state:"C"}).div);
