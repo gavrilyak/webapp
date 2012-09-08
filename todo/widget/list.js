@@ -15,6 +15,10 @@ define([
   dom
 ){
 
+function Destroy(){
+  return 0;   
+}
+
 function Item(basePath, opts){
   var div       = construct.toDom(String.trim(itemHtml));
   var span      = query('span', div);
@@ -38,13 +42,13 @@ function Item(basePath, opts){
   function listen(){
     return [
       span.on("click", edit),
-      button.on("click", destroy),
+      button.on("click", destroy)
     ]
   }
 
   return {
     div : div,
-    //destroy  : Destroy(divsteners, div)
+    destroy  : Destroy(divsteners, div)
   }
 }
 
@@ -57,12 +61,12 @@ function List(basePath, opts){
   //query(div).on("click", (function(){ alert("Kliked"); })
 
   function addItem(){
-    query('ul',div).append(Item(basePath + "item").div);
+    ul.append(Item(basePath + "item").div);
   }
 
 
-  function something({id}){
-    console.log("Some route" + id);
+  function something(evt){
+    console.log("Some route" + evt.params.id);
   }
 
   function serverMessage(message){
@@ -70,7 +74,7 @@ function List(basePath, opts){
   }
 
   function showError(error){
-
+    console.log("Error:" + error);
   }
 
   function listen(){
