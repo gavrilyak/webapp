@@ -1,15 +1,17 @@
 <html>
   <head>
     <script>
-      var dojoConfig = function() {
-      	var local = location.pathname.replace(/\/[^/]+$/, '');
-      	return {
-	//baseUrl        : "../",
-	  async          : true,
-	  //selectorEngine : 'css2.1',
-	  packages:[{ name:"todo", location:  [local,'todo'].join("/") }]
+      var dojoConfig = (function() {
+        var local = location.pathname.replace(/\/[^/]+$/, '');
+        return {
+          //baseUrl        : "../",
+          async          : true,
+          //selectorEngine : 'css2.1',
+          packages:[
+            {name:"todo", location: [local,'todo'].join("/")}
+          ]
         }
-      }
+      })();
       console.log(dojoConfig);
     </script>
     <!--script type="text/javascript" src="dojo/dojo.js"></script-->
@@ -17,9 +19,9 @@
 
     <script>
       require(["todo/widget/list", "dojo/domReady!"], function(List){
-	var completedTodos = document.getElementById("completed").appendChild(List("/completed", {state:"C"}).div);
-	var pendingTodos   = document.getElementById("pending").appendChild(List("/pending",   {state:"R"}).div);
-	console.log("todo")
+        var completedTodos = document.getElementById("completed").appendChild(List("/completed", {state:"C"}).div);
+        var pendingTodos   = document.getElementById("pending").appendChild(List("/pending",   {state:"R"}).div);
+        console.log("todo")
       })
     </script>
   </head>

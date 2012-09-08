@@ -4,7 +4,8 @@ define([
   "dojo/text!./list/item.html",
   "dojo/text!./list.html",
   "dojo/dom",
-  "dojo/NodeList-manipulate", "dojo/NodeList-traverse","dojo/NodeList-dom", "dojo/NodeList-html", //plugins
+  "dojo/NodeList-manipulate", "dojo/NodeList-traverse","dojo/NodeList-dom"
+  //"dojo/NodeList-html", //will get parser
   //"lla/Destroy"
 ], function(
   query,
